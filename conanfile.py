@@ -45,6 +45,9 @@ class GlbindingConan(ConanFile):
         # Don't replace /W3 by /W4
         tools.replace_in_file(os.path.join(self._source_subfolder, "cmake", "CompileOptions.cmake"),
                               "/W4", "")
+        # No whole program optimization
+        tools.replace_in_file(os.path.join(self._source_subfolder, "cmake", "CompileOptions.cmake"),
+                              "/GL", "")
 
     def _configure_cmake(self):
         if self._cmake:
