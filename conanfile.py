@@ -64,15 +64,17 @@ class GlbindingConan(ConanFile):
     def package_info(self):
         self.cpp_info.names["cmake_find_package"] = "glbinding"
         self.cpp_info.names["cmake_find_package_multi"] = "glbinding"
+
+        suffix = "d" if self.settings.build_type == "Debug" else ""
         # glbinding
         self.cpp_info.components["_glbinding"].names["cmake_find_package"] = "glbinding"
         self.cpp_info.components["_glbinding"].names["cmake_find_package_multi"] = "glbinding"
-        self.cpp_info.components["_glbinding"].libs = ["glbinding"]
+        self.cpp_info.components["_glbinding"].libs = ["glbinding" + suffix]
         self.cpp_info.components["_glbinding"].requires = ["khrplatform"]
         # glbinding-aux
         self.cpp_info.components["glbinding-aux"].names["cmake_find_package"] = "glbinding-aux"
         self.cpp_info.components["glbinding-aux"].names["cmake_find_package_multi"] = "glbinding-aux"
-        self.cpp_info.components["glbinding-aux"].libs = ["glbinding-aux"]
+        self.cpp_info.components["glbinding-aux"].libs = ["glbinding-aux" + suffix]
         self.cpp_info.components["glbinding-aux"].requires = ["_glbinding"]
         # KHRplatform
         self.cpp_info.components["khrplatform"].names["cmake_find_package"] = "KHRplatform"
