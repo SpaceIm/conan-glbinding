@@ -42,6 +42,9 @@ class GlbindingConan(ConanFile):
         # Don't force PIC
         tools.replace_in_file(os.path.join(self._source_subfolder, "cmake", "CompileOptions.cmake"),
                               "POSITION_INDEPENDENT_CODE ON", "")
+        # Don't replace /W3 by /W4
+        tools.replace_in_file(os.path.join(self._source_subfolder, "cmake", "CompileOptions.cmake"),
+                              "/W4", "")
 
     def _configure_cmake(self):
         if self._cmake:
