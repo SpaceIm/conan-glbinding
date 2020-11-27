@@ -4,10 +4,10 @@ import os
 
 class GlbindingConan(ConanFile):
     name = "glbinding"
-    description = "Create and optimize SPIRV shaders"
-    license = "Apache-2.0"
-    topics = ("conan", "spirv-tools", "spirv", "spirv-v", "vulkan", "opengl", "opencl", "hlsl", "khronos")
-    homepage = "https://github.com/KhronosGroup/SPIRV-Tools"
+    description = "A C++ binding for the OpenGL API, generated using the gl.xml specification."
+    license = "MIT"
+    topics = ("conan", "glbinding", "opengl", "binding")
+    homepage = "https://glbinding.org/"
     url = "https://github.com/conan-io/conan-center-index"
 
     settings = "os", "arch", "compiler", "build_type"
