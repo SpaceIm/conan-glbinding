@@ -85,6 +85,8 @@ class GlbindingConan(ConanFile):
         self.cpp_info.components["_glbinding"].names["cmake_find_package_multi"] = "glbinding"
         self.cpp_info.components["_glbinding"].libs = ["glbinding" + suffix]
         self.cpp_info.components["_glbinding"].requires = ["khrplatform"]
+        if self.settings.os == "Linux":
+            self.cpp_info.components["_glbinding"].system_libs = ["dl", "pthread"]
         # glbinding-aux
         self.cpp_info.components["glbinding-aux"].names["cmake_find_package"] = "glbinding-aux"
         self.cpp_info.components["glbinding-aux"].names["cmake_find_package_multi"] = "glbinding-aux"
