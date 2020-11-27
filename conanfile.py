@@ -90,4 +90,4 @@ class GlbindingConan(ConanFile):
         # KHRplatform
         self.cpp_info.components["khrplatform"].names["cmake_find_package"] = "KHRplatform"
         self.cpp_info.components["khrplatform"].names["cmake_find_package_multi"] = "KHRplatform"
-        self.cpp_info.components["glbinding-aux"].libdirs = []
+        self.cpp_info.components["khrplatform"].libdirs = []
