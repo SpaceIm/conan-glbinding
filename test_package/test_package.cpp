@@ -1,19 +1,11 @@
-#include <GLFW/glfw3.h>
 #include <glbinding/glbinding.h>
 
+#define GLFW_INCLUDE_NONE
+#include <GLFW/glfw3.h>
+
 int main() {
-    if (!glfwInit()) return 1;
-
-    glfwDefaultWindowHints();
-    glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-
-    GLFWwindow *window = glfwCreateWindow(320, 240, "", nullptr, nullptr);
-    if (!window) {
-        glfwTerminate();
-        return -1;
-    }
-
-    glfwMakeContextCurrent(window);
+    GLFWmonitor *monitor = glfwGetPrimaryMonitor();
+    GLFWwindow *window = glfwCreateWindow(640, 480, "Window name", monitor, NULL);
 
     glbinding::initialize(glfwGetProcAddress, false);
 
